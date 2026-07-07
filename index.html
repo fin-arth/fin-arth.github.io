@@ -6,12 +6,12 @@
     <title>Fin Arth | Finance Insights</title>
     <style>
         :root {
-            --primary-bg: #f8f9fa;
+            --primary-bg: #f4f9f4; /* Soft green-tinted background */
             --card-bg: #ffffff;
             --text-main: #212529;
-            --text-muted: #6c757d;
-            --button-bg: #212529;
-            --button-hover: #343a40;
+            --text-muted: #555555;
+            --button-bg: #1e5631; /* Dark green matching your logo */
+            --button-hover: #143d22;
             --button-text: #ffffff;
         }
 
@@ -31,38 +31,31 @@
             background-color: var(--card-bg);
             padding: 40px 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
             text-align: center;
             max-width: 400px;
             width: 100%;
         }
 
         .profile-img {
-            width: 100px;
-            height: 100px;
-            background-color: var(--text-muted);
-            border-radius: 50%;
+            display: block;
+            width: 160px; /* Adjusted to fit your logo perfectly */
+            height: auto;
             margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            /* Replace the background color with a background-image URL to add your logo */
+            object-fit: contain;
         }
 
         h1 {
-            margin: 0 0 10px;
-            font-size: 24px;
-            font-weight: 700;
+            /* Hidden because the logo already contains the text "FIN ARTH" */
+            display: none; 
         }
 
         p {
             color: var(--text-muted);
             margin: 0 0 30px;
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
         .links {
@@ -72,7 +65,10 @@
         }
 
         .link-btn {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
             padding: 14px 20px;
             background-color: var(--button-bg);
             color: var(--button-text);
@@ -87,6 +83,13 @@
             transform: translateY(-2px);
         }
 
+        /* Specific Button Colors */
+        .link-btn.x-btn { background-color: #000000; }
+        .link-btn.x-btn:hover { background-color: #333333; }
+        
+        .link-btn.email-btn { background-color: #0078D4; }
+        .link-btn.email-btn:hover { background-color: #005a9e; }
+
         .footer {
             margin-top: 30px;
             font-size: 12px;
@@ -97,17 +100,24 @@
 <body>
 
     <div class="container">
-        <!-- Add your logo image here -->
-        <div class="profile-img">FA</div>
+        <!-- Your uploaded logo image -->
+        <img src="Image.jpg" alt="Fin Arth Logo" class="profile-img">
         
-        <h1>Fin Arth</h1>
-        <p>Demystifying finance. Insights on markets, wealth, and personal finance.</p>
+        <p>Stock market | Current affairs | Personal Finance 💰</p>
 
         <div class="links">
-            <a href="https://www.youtube.com/@Fin_Arth" target="_blank" class="link-btn">YouTube</a>
-            <a href="https://x.com/fin_arth?s=11" target="_blank" class="link-btn">X (Twitter)</a>
-            <a href="https://www.instagram.com/fin.arth" target="_blank" class="link-btn">Instagram</a>
-            <a href="mailto:fin.arth@outlook.com" class="link-btn" style="background-color: #0078D4;">Contact via Email</a>
+            <a href="https://www.youtube.com/@Fin_Arth" target="_blank" class="link-btn">
+                ▶ YouTube
+            </a>
+            <a href="https://x.com/fin_arth?s=11" target="_blank" class="link-btn x-btn">
+                𝕏 X (Twitter)
+            </a>
+            <a href="https://www.instagram.com/fin.arth" target="_blank" class="link-btn">
+                📷 Instagram
+            </a>
+            <a href="mailto:fin.arth@outlook.com" class="link-btn email-btn">
+                ✉ Contact via Email
+            </a>
         </div>
 
         <div class="footer">
