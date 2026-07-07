@@ -1,129 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fin Arth | Finance Insights</title>
-    <style>
-        :root {
-            --primary-bg: #f4f9f4; /* Soft green-tinted background */
-            --card-bg: #ffffff;
-            --text-main: #212529;
-            --text-muted: #555555;
-            --button-bg: #1e5631; /* Dark green matching your logo */
-            --button-hover: #143d22;
-            --button-text: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fin Arth | Finance Insights</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--primary-bg);
-            color: var(--text-main);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
+  <style>
+    :root {
+      --bg: #f5f7f6;
+      --surface: #ffffff;
+      --surface-soft: #f8faf9;
+      --text: #17212b;
+      --muted: #5f6b76;
+      --primary: #174c2c;
+      --primary-hover: #10371f;
+      --border: #e5ebe7;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max-width: 480px;
+    }
 
-        .container {
-            background-color: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .profile-img {
-            display: block;
-            width: 160px; /* Adjusted to fit your logo perfectly */
-            height: auto;
-            margin: 0 auto 20px;
-            object-fit: contain;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        h1 {
-            /* Hidden because the logo already contains the text "FIN ARTH" */
-            display: none; 
-        }
+    body {
+      min-height: 100vh;
+      font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(23, 76, 44, 0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(23, 76, 44, 0.06), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 16px;
+      line-height: 1.5;
+    }
 
-        p {
-            color: var(--text-muted);
-            margin: 0 0 30px;
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 500;
-        }
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+    }
 
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
 
-        .link-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 20px;
-            background-color: var(--button-bg);
-            color: var(--button-text);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-        }
+    .card-top {
+      height: 8px;
+      background: linear-gradient(90deg, #174c2c, #2a6d46, #174c2c);
+    }
 
-        .link-btn:hover {
-            background-color: var(--button-hover);
-            transform: translateY(-2px);
-        }
+    .content {
+      padding: 32px 28px 26px;
+      text-align: center;
+    }
 
-        /* Specific Button Colors */
-        .link-btn.x-btn { background-color: #000000; }
-        .link-btn.x-btn:hover { background-color: #333333; }
-        
-        .link-btn.email-btn { background-color: #0078D4; }
-        .link-btn.email-btn:hover { background-color: #005a9e; }
+    .logo-wrap {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+    }
 
-        .footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-    </style>
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand {
+      margin-bottom: 10px;
+    }
+
+    .brand h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .brand-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(23, 76, 44, 0.08);
+      border: 1px solid rgba(23, 76, 44, 0.12);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .description {
+      max-width: 360px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .highlights {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .highlight-chip {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      text-align: left;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+
+    .links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      text-decoration: none;
+      background: var(--surface-soft);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 15px 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(23, 76, 44, 0.28);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      background: #fbfcfb;
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .icon-box {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      background: rgba(23, 76, 44, 0.08);
+      color: var(--primary);
+    }
+
+    .link-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .link-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .link-subtitle {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    .youtube .icon-box {
+      background: rgba(255, 0, 0, 0.08);
+      color: #cc0000;
+    }
+
+    .x .icon-box {
+      background: rgba(0, 0, 0, 0.08);
+      color: #111111;
+    }
+
+    .instagram .icon-box {
+      background: rgba(225, 48, 108, 0.08);
+      color: #c13584;
+    }
+
+    .email .icon-box {
+      background: rgba(0, 120, 212, 0.08);
+      color: #0078d4;
+    }
+
+    .footer {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .content {
+        padding: 24px 18px 22px;
+      }
+
+      .brand h1 {
+        font-size: 1.65rem;
+      }
+
+      .description {
+        font-size: 0.94rem;
+      }
+
+      .link-btn {
+        padding: 14px 14px;
+      }
+
+      .icon-box {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="page">
+    <section class="card">
+      <div class="card-top"></div>
 
-    <div class="container">
-        <!-- Your uploaded logo image -->
-        <img src="Image.jpg" alt="Fin Arth Logo" class="profile-img">
-        
-        <p>Stock market | Current affairs | Personal Finance 💰</p>
+      <div class="content">
+        <div class="logo-wrap">
+          <img src="Image.jpg" alt="Fin Arth Logo" class="profile-img" />
+        </div>
+
+        <div class="brand">
+          <div class="brand-tag">Finance Content Platform</div>
+          <h1>Fin Arth</h1>
+        </div>
+
+        <p class="description">
+          Simplifying finance through stock market insights, current affairs, and personal finance content designed for everyday investors and learners.
+        </p>
+
+        <div class="highlights">
+          <span class="highlight-chip">Stock Market</span>
+          <span class="highlight-chip">Current Affairs</span>
+          <span class="highlight-chip">Personal Finance</span>
+        </div>
+
+        <div class="section-title">Connect with Fin Arth</div>
 
         <div class="links">
-            <a href="https://www.youtube.com/@Fin_Arth" target="_blank" class="link-btn">
-                ▶ YouTube
-            </a>
-            <a href="https://x.com/fin_arth?s=11" target="_blank" class="link-btn x-btn">
-                𝕏 X (Twitter)
-            </a>
-            <a href="https://www.instagram.com/fin.arth" target="_blank" class="link-btn">
-                📷 Instagram
-            </a>
-            <a href="mailto:fin.arth@outlook.com" class="link-btn email-btn">
-                ✉ Contact via Email
-            </a>
+          <a href="https://www.youtube.com/@Fin_Arth" target="_blank" rel="noopener noreferrer" class="link-btn youtube">
+            <div class="link-left">
+              <div class="icon-box">▶</div>
+              <div class="link-meta">
+                <span class="link-title">YouTube</span>
+                <span class="link-subtitle">Videos, explainers & market content</span>
+              </div>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a href="https://x.com/fin_arth?s=11" target="_blank" rel="noopener noreferrer" class="link-btn x">
+            <div class="link-left">
+              <div class="icon-box">𝕏</div>
+              <div class="link-meta">
+                <span class="link-title">X (Twitter)</span>
+                <span class="link-subtitle">Quick market thoughts & updates</span>
+              </div>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a href="https://www.instagram.com/fin.arth" target="_blank" rel="noopener noreferrer" class="link-btn instagram">
+            <div class="link-left">
+              <div class="icon-box">⌁</div>
+              <div class="link-meta">
+                <span class="link-title">Instagram</span>
+                <span class="link-subtitle">Short-form finance content & reels</span>
+              </div>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
+
+          <a href="mailto:fin.arth@outlook.com" class="link-btn email">
+            <div class="link-left">
+              <div class="icon-box">✉</div>
+              <div class="link-meta">
+                <span class="link-title">Email</span>
+                <span class="link-subtitle">Partnerships, queries & collaborations</span>
+              </div>
+            </div>
+            <span class="arrow">↗</span>
+          </a>
         </div>
 
         <div class="footer">
-            &copy; 2026 Fin Arth. All rights reserved.
+          © 2026 Fin Arth. All rights reserved.
         </div>
-    </div>
-
+      </div>
+    </section>
+  </main>
 </body>
 </html>
